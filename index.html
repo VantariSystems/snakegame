@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snake Game - Dark Mode</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Tela de Início -->
+    <div id="startScreen">
+        <h1>Snake Game</h1>
+        <button id="startButton">Start</button>
+    </div>
+    
+    <!-- Placar -->
+    <div id="scoreBoard" style="display: none;">
+        Score: <span id="scoreValue">0</span>
+    </div>
+
+    <!-- Canvas do Jogo -->
+    <canvas id="gameCanvas" width="400" height="400" style="display: none;"></canvas>
+
+    <!-- Tela de Game Over -->
+    <div id="gameOverScreen" style="display: none;">
+        <h1>Game Over</h1>
+        <p id="finalScore"></p>
+        <button id="restartButton">Restart</button>
+    </div>
+
+    <!-- Biblioteca Howler.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.3/howler.min.js"></script>
+    <!-- Script do Jogo -->
+    <script src="script.js"></script>
+</body>
+</html>

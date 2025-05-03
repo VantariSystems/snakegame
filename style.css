@@ -1,0 +1,128 @@
+/* Body - fundo escuro com efeitos */
+body {
+    font-family: 'Roboto', sans-serif;
+    background: #121212; /* Fundo escuro */
+    color: #fff; /* Texto branco */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    flex-direction: column;
+    text-align: center;
+    overflow: hidden;
+}
+
+/* Título do Jogo */
+h1 {
+    font-size: 3rem;
+    color: #00ff00; /* Verde neon gamer */
+    margin-bottom: 20px;
+    text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00; /* Efeito neon */
+}
+
+/* Menu de Início */
+#startScreen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#startButton {
+    background-color: #333; /* Fundo escuro para o botão */
+    color: #00ff00; /* Verde neon */
+    font-size: 1.5rem;
+    padding: 15px 30px;
+    border: 2px solid #00ff00; /* Borda neon */
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.5); /* Efeito de brilho */
+}
+
+#startButton:hover {
+    background-color: #444; /* Escurece quando passa o mouse */
+    transform: scale(1.1); /* Dá um leve zoom no botão */
+}
+
+/* Tela de Game Over */
+#gameOverScreen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.8); /* Fundo escuro e semitransparente */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 15px #ff0000; /* Efeito de brilho vermelho */
+    margin-top: 20px;
+}
+
+#gameOverScreen h1 {
+    font-size: 3rem;
+    color: #ff0000; /* Vermelho para a tela de Game Over */
+    text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000;
+}
+
+#finalScore {
+    font-size: 1.5rem;
+    color: #00ff00; /* Verde neon para o score */
+    margin: 20px 0;
+}
+
+#restartButton {
+    background-color: #333;
+    color: #00ff00;
+    font-size: 1.5rem;
+    padding: 10px 20px;
+    border: 2px solid #00ff00;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.5);
+}
+
+#restartButton:hover {
+    background-color: #444;
+    transform: scale(1.1);
+}
+
+/* Placar */
+#scoreBoard {
+    font-size: 1.5rem;
+    margin-top: 20px;
+    color: #00ff00; /* Verde neon */
+    text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00;
+}
+
+/* Canvas */
+#gameCanvas {
+    border: 2px solid #00ff00; /* Borda neon verde */
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.7); /* Efeito de brilho verde */
+    margin-top: 20px;
+    border-radius: 8px;
+}
+
+/* Efeito de animação no Game Over */
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+/* Efeitos de transição e animação geral */
+button, #startButton, #restartButton {
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+/* Efeito de "neon" para o texto */
+@keyframes glowText {
+    0% { text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00, 0 0 15px #00ff00; }
+    50% { text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000, 0 0 30px #ff0000; }
+    100% { text-shadow: 0 0 5px #00ff00, 0 0 10px #00ff00, 0 0 15px #00ff00; }
+}
+
+/* Animação suave para o efeito glow do título */
+h1 {
+    animation: glowText 2s infinite alternate;
+}
