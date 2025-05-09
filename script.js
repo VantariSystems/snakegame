@@ -41,20 +41,18 @@ const backgroundMusic = new Howl({
     }
 });
 
-// Variáveis do jogo
 let snake = [{ x: 50, y: 50 }];
 let food = { x: 200, y: 200 };
 let direction = 'right';
 let score = 0;
 let gameInterval;
 let gameOver = false;
-let speed = 100; // Velocidade do jogo
+let speed = 100; // A velocidade do jogo
 
-// Função para iniciar o jogo
 function startGame() {
     console.log("Iniciando o jogo...");
-    backgroundMusic.currentTime = 0; // Reseta o tempo da música
-    backgroundMusic.play();  // Inicia a música de fundo
+    backgroundMusic.currentTime = 0;
+    backgroundMusic.play();
 
     snake = [{ x: 50, y: 50 }];
     food = { x: 200, y: 200 };
@@ -62,29 +60,26 @@ function startGame() {
     score = 0;
     gameOver = false;
     speed = 100; // Reseta a velocidade
-    canvas.style.display = 'block'; // Mostrar o canvas
-    gameOverScreen.style.display = 'none'; // Esconder a tela de game over
-    document.getElementById('startScreen').style.display = 'none'; // Esconder a tela de start
-    gameInterval = setInterval(updateGame, speed); // Atualizar a cada 100ms
+    canvas.style.display = 'block';
+    gameOverScreen.style.display = 'none';
+    document.getElementById('startScreen').style.display = 'none'; 
+    gameInterval = setInterval(updateGame, speed);
 }
 
-// Função para reiniciar o jogo
 function restartGame() {
     console.log("Reiniciando o jogo...");
     startGame();
 }
 
-// Função para desenhar a cobrinha
 function drawSnake() {
-    ctx.fillStyle = '#0f0'; // Cor da cobrinha (verde neon)
+    ctx.fillStyle = '#0f0'; // A cor da cobrinha
     for (let i = 0; i < snake.length; i++) {
-        let alpha = (i + 1) / snake.length; // Aumenta a opacidade do rastro conforme o segmento é mais antigo
+        let alpha = (i + 1) / snake.length; 
         ctx.fillStyle = `rgba(0, 255, 0, ${alpha})`;
         ctx.fillRect(snake[i].x, snake[i].y, 10, 10);
     }
 }
 
-// Função para desenhar a comida
 function drawFood() {
     let gradient = ctx.createRadialGradient(
         food.x + 5, food.y + 5, 2, food.x + 5, food.y + 5, 5
@@ -98,7 +93,6 @@ function drawFood() {
     ctx.fill();
 }
 
-// Função para mover a cobrinha
 function moveSnake() {
     let head = Object.assign({}, snake[0]);
 
@@ -112,31 +106,27 @@ function moveSnake() {
 
     if (head.x === food.x && head.y === food.y) {
         console.log("Comendo a comida!");
-        eatSound.play(); // Agora usando Howler
+        eatSound.play(); 
         score++;
-        speed = Math.max(50, speed - 5); // Aumenta a velocidade conforme o jogador vai pontuando
-        generateFood(); // Gerar nova comida
+        speed = Math.max(50, speed - 5); // vai aumentando a velocidade do jogo de acordo com os avanços do player
+        generateFood();
     } else {
-        snake.pop(); // Remover a última parte da cobrinha
+        snake.pop();
     }
 }
 
-// Função para gerar comida em um local aleatório
 function generateFood() {
     food.x = Math.floor(Math.random() * 40) * 10;
     food.y = Math.floor(Math.random() * 40) * 10;
 }
 
-// Função para verificar colisões
 function checkCollision() {
     let head = snake[0];
 
-    // Colisão com as bordas
     if (head.x < 0 || head.x >= canvas.width || head.y < 0 || head.y >= canvas.height) {
         endGame();
     }
 
-    // Colisão com o próprio corpo
     for (let i = 1; i < snake.length; i++) {
         if (head.x === snake[i].x && head.y === snake[i].y) {
             endGame();
@@ -144,18 +134,16 @@ function checkCollision() {
     }
 }
 
-// Função de fim de jogo
 function endGame() {
     console.log("Fim de jogo!");
-    backgroundMusic.pause(); // Pausa a música de fundo
-    gameOverSound.play();    // Toca o som de Game Over
+    backgroundMusic.pause();
+    gameOverSound.play();
     gameOver = true;
-    clearInterval(gameInterval); // Parar o intervalo de atualização
-    gameOverScreen.style.display = 'block'; // Mostrar a tela de game over
-    finalScore.textContent = `Score: ${score}`; // Mostrar o score final
+    clearInterval(gameInterval);
+    gameOverScreen.style.display = 'block';
+    finalScore.textContent = `Score: ${score}`;
 }
 
-// Função para atualizar o jogo
 function updateGame() {
     if (gameOver) return;
     ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -165,7 +153,6 @@ function updateGame() {
     checkCollision();
 }
 
-// Função para controlar a direção da cobrinha com as teclas
 document.addEventListener('keydown', function(e) {
     if (e.key === 'ArrowUp' && direction !== 'down') {
         direction = 'up';
@@ -182,6 +169,5 @@ document.addEventListener('keydown', function(e) {
     }
 });
 
-// Adicionar eventos para o botão de "Start" e "Restart"
 startButton.addEventListener('click', startGame);
 restartButton.addEventListener('click', restartGame);
