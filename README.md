@@ -1,11 +1,13 @@
-## Direitos Autorais
+Licença de Uso com Atribuição - Snake Game | Rafaella de Sousa Andrelino
 
-© 2025 Rafaella de Sousa Andrelino. Todos os direitos reservados.
+Este jogo foi desenvolvido para fins educacionais e prática em lógica de programação. Pode ser estudado e modificado com os devidos créditos.
 
-Este projeto foi idealizado, desenvolvido e publicado por mim, com o objetivo de apoiar pessoas em situações desafiadoras por meio da tecnologia.
+Uso permitido:
+- Estudo e uso pessoal;
+- Modificações para aprendizado, desde que com menção à autora.
 
-**Não é permitida a cópia, redistribuição, modificação ou uso parcial/total deste código sem minha autorização expressa por escrito.**
+Uso proibido:
+- Publicar ou vender o projeto como próprio;
+- Omitir créditos ao reaproveitar o código.
 
-Caso você tenha interesse em colaborar ou utilizar trechos para fins educacionais, entre em contato pelo e-mail disponível no portfólio.
-
-Violação de uso pode acarretar medidas legais conforme a Lei de Direitos Autorais (Lei 9.610/98 - Brasil) e os Termos do GitHub
+© 2025 Rafaella de Sousa Andrelino
